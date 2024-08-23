@@ -23,7 +23,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    availabe = models.BooleanField(default=True)
+    available = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
