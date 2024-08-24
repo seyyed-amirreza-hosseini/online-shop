@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}
     {% if category %}
-        {{ category.name }}
+        {{ category.title }}
     {% else %}
         Products
     {% endif %}
@@ -17,7 +17,7 @@
             </li>
             {% for c in categories %}
                 <li {% if category.slug == c.slug %}class="selected"{% endif %}>
-                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    <a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
                 </li>
             {% endfor %}
         </ul>
@@ -26,7 +26,7 @@
     <div id="main" class="product-list">
         <h1>
             {% if category %}
-                {{ category.name }}
+                {{ category.title }}
             {% else %}
                 Products
             {% endif %}
@@ -37,7 +37,7 @@
                 <a href="{{ product.get_absolute_url }}">
                     <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
                 </a>
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
                 <br>
                 ${{ product.price }}
             </div>
